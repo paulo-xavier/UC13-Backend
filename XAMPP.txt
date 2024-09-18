@@ -1,0 +1,33 @@
+What is XAMPP-
+	
+	- Transform each computer in a server. 
+
+
+
+Types of server 
+	- Web server
+	- Database server (PHPMYADMIN)
+
+
+
+Services to stop
+	- MYSQL80
+	- Serviço de publicação para a World Wide Web
+
+
+
+
+API 
+
+	- Interface that allows computer to communicate with servers
+
+
+
+-------------
+
+Starting the XAMPP server
+
+1. Run APACHE;
+2. Run MySQL;
+
+
