@@ -7,6 +7,12 @@
     --light-blue: #4886D9;
 }
 
+a{
+    text-decoration: none;
+    color: var(--light-blue);
+    font-weight: bold;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -62,6 +68,10 @@ input {
     background-color: rgb(65, 65, 151);
 }
 
+
+#register__container{
+
+}
 
 @media(max-width: 1063px){
     

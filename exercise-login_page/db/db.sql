@@ -9,3 +9,5 @@ CREATE TABLE users(
     user_username VARCHAR(50) NOT NULL,
     user_password VARCHAR(50) NOT NULL,
 )
+
+
