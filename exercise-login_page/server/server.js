@@ -37,8 +37,19 @@ app.post('/login', (req, res) => {
 
 
 app.post('/register', (req, res) => {
+
     const { name, email, username, password} = req.body;
-})
+
+        db.query('INSERT INTO users (user_name, user_email, user_username, user_password) VALUES (?, ?, ?, ?)', [name, email, username, password], (err, result) => {
+            if (err) throw err;
+            res.sendStatus(201); // Usuário registrado com sucesso
+        });
+    });
+
+    
+
+
+
 
 app.listen(3000, () => {
     console.log('Server running on port 3000');
