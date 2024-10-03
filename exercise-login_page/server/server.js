@@ -46,11 +46,19 @@ app.post('/register', (req, res) => {
         });
     });
 
-    
+   
 
+app.get('/registers', (req, res) => {
+    connection.query('SELECT * FROM users', (error, results) => {
+      if (error) {
+        res.status(500).send('Erro ao obter usuários.');
+        return;
+      }
+      res.json(results);
+    });
+  });    
 
-
-
+  
 app.listen(3000, () => {
     console.log('Server running on port 3000');
 })
