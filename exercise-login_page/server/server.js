@@ -4,9 +4,11 @@ const mysql2 = require('mysql2');
 const app = express(); 
 const cors = require('cors');
 
-app.use(cors({
-    origin: 'http://127.0.0.1:5500'
-}))
+// app.use(cors({
+//     origin: 'http://127.0.0.1:5500'
+// }))
+
+app.use(cors());
 
 
 app.use(bodyParser.json()); 
@@ -49,7 +51,7 @@ app.post('/register', (req, res) => {
    
 
 app.get('/registers', (req, res) => {
-    connection.query('SELECT * FROM users', (error, results) => {
+    db.query('SELECT * FROM users', (error, results) => {
       if (error) {
         res.status(500).send('Erro ao obter usuários.');
         return;
@@ -59,6 +61,28 @@ app.get('/registers', (req, res) => {
   });    
 
   
+
+
+app.put('/users/:id', (req, res) => {
+    
+    const { id } = req.params;
+    const { username, password } = req.body;
+
+    const sql = 'UPDATE users SET user_username = ?, user_password = ? WHERE user_id = ?';
+
+    db.query(sql, [username, password, id], (error, results) => {
+        if (error) {
+            res.status(500).send('Updating using failed!!');
+            return;
+        }
+
+        res.send('User successfully updated!!');
+
+    })
+})
+
+
+
 app.listen(3000, () => {
     console.log('Server running on port 3000');
 })
