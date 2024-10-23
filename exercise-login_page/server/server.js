@@ -82,6 +82,26 @@ app.put('/users/:id', (req, res) => {
 })
 
 
+app.delete('/users/:id', (req, res) => {
+    const { id } = req.params;
+
+    const sql = 'DELETE FROM users WHERE user_id = ?';
+
+    db.query(sql, [id], (error, results) => {
+
+        if (error) {
+            res.status(500).send('Deleting using failed!!');
+            return;
+
+
+        } else {
+            res.send('User successfully deleted!');
+        }
+
+    })
+
+})
+
 
 app.listen(3000, () => {
     console.log('Server running on port 3000');
